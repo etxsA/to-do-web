@@ -43,3 +43,6 @@ pnpm-debug.log*
 
 # --- Codegraph index ---
 .codegraph/
+
+# Cypress local creds
+cypress.env.json
