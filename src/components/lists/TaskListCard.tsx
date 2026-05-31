@@ -3,6 +3,7 @@ import { MoreVertical, Pencil, Trash2 } from 'lucide-react'
 
 import type { TaskListWithOldestPending } from '@/types/api'
 import { ListIcon } from '@/components/lists/ListIcon'
+import { formatPercent } from '@/utils/percent'
 import { Progress } from '@/components/ui/progress'
 import {
   DropdownMenu,
@@ -69,7 +70,7 @@ export function TaskListCard({
           indicatorColor={list.color}
         />
         <p className="mt-3 text-[10px] font-bold uppercase tracking-wide text-muted-foreground">
-          {list.progress}% Completed
+          {formatPercent(list.progress)}% Completed
         </p>
       </Link>
     </div>

@@ -1,5 +1,14 @@
 import { useNavigate } from 'react-router-dom'
-import { LogOut, Monitor, Moon, Sun, User as UserIcon } from 'lucide-react'
+import {
+  BarChart3,
+  CalendarDays,
+  KanbanSquare,
+  LogOut,
+  Monitor,
+  Moon,
+  Sun,
+  User as UserIcon,
+} from 'lucide-react'
 
 import { useAuthStore } from '@/stores/authStore'
 import { useThemeStore, type ThemeMode } from '@/stores/themeStore'
@@ -67,6 +76,15 @@ export function UserMenu() {
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={() => navigate('/about')}>
           <UserIcon className="size-4" /> Profile / About
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => navigate('/calendar')}>
+          <CalendarDays className="size-4" /> Calendar
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => navigate('/board')}>
+          <KanbanSquare className="size-4" /> Board
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => navigate('/analytics')}>
+          <BarChart3 className="size-4" /> Analytics
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuLabel className="text-xs text-muted-foreground">Theme</DropdownMenuLabel>
