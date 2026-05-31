@@ -16,6 +16,7 @@ import { EmptyState } from '@/components/feedback/EmptyState'
 import { ConfirmDialog } from '@/components/feedback/ConfirmDialog'
 import { TaskListCard } from '@/components/lists/TaskListCard'
 import { ListFormDialog } from '@/components/lists/ListFormDialog'
+import { SmartCardsRow } from '@/components/lists/SmartCardsRow'
 
 export function Dashboard() {
   const user = useAuthStore((s) => s.user)
@@ -92,6 +93,9 @@ export function Dashboard() {
           )}
         </div>
       </div>
+
+      {/* Smart lists */}
+      <SmartCardsRow />
 
       {/* Study Lists */}
       <section>
