@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Circle, Plus } from 'lucide-react'
 import { toast } from 'sonner'
 
 import type { TaskList } from '@/types/api'
 import { useAuthStore } from '@/stores/authStore'
+import { useUiStore } from '@/stores/uiStore'
 import { useToday } from '@/hooks/useTasks'
 import { useTaskListsWithProgress } from '@/hooks/useTaskLists'
 import { useDeleteTaskList } from '@/hooks/useTaskListMutations'
@@ -27,6 +28,16 @@ export function Dashboard() {
   const [createOpen, setCreateOpen] = useState(false)
   const [editList, setEditList] = useState<TaskList | undefined>()
   const [deleteList, setDeleteList] = useState<TaskList | undefined>()
+
+  // Allow the ⌘K palette to open the create-list dialog.
+  const uiCreateOpen = useUiStore((s) => s.createListOpen)
+  const setUiCreateOpen = useUiStore((s) => s.setCreateListOpen)
+  useEffect(() => {
+    if (uiCreateOpen) {
+      setCreateOpen(true)
+      setUiCreateOpen(false)
+    }
+  }, [uiCreateOpen, setUiCreateOpen])
 
   const firstName = user?.fullName?.split(' ')[0] ?? 'Scholar'
   const todayTasks = today.data ?? []
