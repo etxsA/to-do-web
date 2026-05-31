@@ -51,7 +51,7 @@ export function Login() {
     <div className="flex min-h-svh items-center justify-center bg-background p-4">
       <Card className="w-full max-w-sm">
         <CardHeader className="text-center">
-          <div className="mx-auto mb-1 text-xl font-bold text-primary">EduTask</div>
+          <div className="mx-auto mb-1 text-xl font-bold text-primary">Scholarly Atelier</div>
           <CardTitle>Welcome back</CardTitle>
           <CardDescription>Sign in to your account</CardDescription>
         </CardHeader>
