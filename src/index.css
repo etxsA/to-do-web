@@ -1,0 +1,196 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * EduTask brand palette → shadcn semantic tokens.
+ * Source of truth: .planning/WEB_HANDOFF.md §5 (mirrors mobile brand).
+ */
+:root {
+  --radius: 0.625rem;
+
+  --background: #f9f9ff; /* bg */
+  --foreground: #191c23; /* ink */
+
+  --card: #ffffff; /* surface */
+  --card-foreground: #191c23;
+  --popover: #ffffff;
+  --popover-foreground: #191c23;
+
+  --primary: #005bbf;
+  --primary-foreground: #ffffff;
+
+  --secondary: #dbeafe; /* primarySoft */
+  --secondary-foreground: #1e40af; /* primaryDark */
+
+  --muted: #ecedf7; /* track */
+  --muted-foreground: #64748b; /* soft */
+
+  --accent: #dbeafe;
+  --accent-foreground: #1e40af;
+
+  --destructive: #ba1a1a; /* danger */
+  --destructive-foreground: #ffffff;
+
+  --border: #e6e8f2;
+  --input: #e6e8f2;
+  --ring: #1d4ed8; /* primaryStrong */
+
+  /* Brand extras */
+  --success: #006d2c;
+  --success-foreground: #ffffff;
+  --primary-strong: #1d4ed8;
+  --primary-dark: #1e40af;
+  --primary-soft: #dbeafe;
+  --ink-muted: #414754; /* muted */
+
+  /* Priority (fg / bg) */
+  --priority-high: #ba1a1a;
+  --priority-high-bg: #fee2e2;
+  --priority-medium: #b45309;
+  --priority-medium-bg: #fef3c7;
+  --priority-low: #006d2c;
+  --priority-low-bg: #dcfce7;
+
+  /* Charts (analytics) */
+  --chart-1: #005bbf;
+  --chart-2: #1d4ed8;
+  --chart-3: #b45309;
+  --chart-4: #006d2c;
+  --chart-5: #ba1a1a;
+
+  /* Sidebar */
+  --sidebar: #ffffff;
+  --sidebar-foreground: #191c23;
+  --sidebar-primary: #005bbf;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #ecedf7;
+  --sidebar-accent-foreground: #1e40af;
+  --sidebar-border: #e6e8f2;
+  --sidebar-ring: #1d4ed8;
+}
+
+.dark {
+  --background: #0f1117;
+  --foreground: #f2f3fb;
+
+  --card: #161922;
+  --card-foreground: #f2f3fb;
+  --popover: #161922;
+  --popover-foreground: #f2f3fb;
+
+  --primary: #4f9bff;
+  --primary-foreground: #06121f;
+
+  --secondary: #1e2a44;
+  --secondary-foreground: #dbeafe;
+
+  --muted: #1c2230;
+  --muted-foreground: #9aa6bd;
+
+  --accent: #1e2a44;
+  --accent-foreground: #dbeafe;
+
+  --destructive: #ff6b6b;
+  --destructive-foreground: #1a0606;
+
+  --border: #262d3b;
+  --input: #2a3340;
+  --ring: #4f9bff;
+
+  --success: #4ade80;
+  --success-foreground: #052e16;
+  --primary-strong: #4f9bff;
+  --primary-dark: #93c5fd;
+  --primary-soft: #1e2a44;
+  --ink-muted: #c5ccda;
+
+  --priority-high: #ff8a8a;
+  --priority-high-bg: #3a1414;
+  --priority-medium: #f0b75e;
+  --priority-medium-bg: #3a2a10;
+  --priority-low: #6ee7a0;
+  --priority-low-bg: #0f2a18;
+
+  --chart-1: #4f9bff;
+  --chart-2: #93c5fd;
+  --chart-3: #f0b75e;
+  --chart-4: #6ee7a0;
+  --chart-5: #ff8a8a;
+
+  --sidebar: #161922;
+  --sidebar-foreground: #f2f3fb;
+  --sidebar-primary: #4f9bff;
+  --sidebar-primary-foreground: #06121f;
+  --sidebar-accent: #1c2230;
+  --sidebar-accent-foreground: #dbeafe;
+  --sidebar-border: #262d3b;
+  --sidebar-ring: #4f9bff;
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-primary-strong: var(--primary-strong);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-soft: var(--primary-soft);
+  --color-ink-muted: var(--ink-muted);
+
+  --color-priority-high: var(--priority-high);
+  --color-priority-high-bg: var(--priority-high-bg);
+  --color-priority-medium: var(--priority-medium);
+  --color-priority-medium-bg: var(--priority-medium-bg);
+  --color-priority-low: var(--priority-low);
+  --color-priority-low-bg: var(--priority-low-bg);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+}
