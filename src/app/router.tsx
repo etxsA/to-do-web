@@ -1,18 +1,24 @@
 import { createBrowserRouter } from 'react-router-dom'
 import { RootLayout } from '@/app/RootLayout'
+import { ProtectedRoute } from '@/app/ProtectedRoute'
 import { Placeholder } from '@/app/Placeholder'
+import { Login } from '@/routes/Login'
+import { Register } from '@/routes/Register'
 
 /**
- * Route table (WEB_HANDOFF §2). Auth screens are top-level; the rest render
- * inside RootLayout. `<ProtectedRoute>` wrapping is added in feature/auth.
+ * Route table (WEB_HANDOFF §2). Auth screens are top-level; everything else is
+ * guarded by <ProtectedRoute> and rendered inside RootLayout.
  */
 export const router = createBrowserRouter([
-  { path: '/login', element: <Placeholder title="Login" /> },
-  { path: '/register', element: <Placeholder title="Register" /> },
+  { path: '/login', element: <Login /> },
+  { path: '/register', element: <Register /> },
   {
     path: '/',
-    element: <RootLayout />,
+    element: <ProtectedRoute />,
     children: [
+      {
+        element: <RootLayout />,
+        children: [
       { index: true, element: <Placeholder title="Dashboard" /> },
       { path: 'lists/new', element: <Placeholder title="New List" /> },
       { path: 'lists/:id', element: <Placeholder title="List Detail" /> },
@@ -25,6 +31,8 @@ export const router = createBrowserRouter([
       { path: 'board', element: <Placeholder title="Board" /> },
       { path: 'analytics', element: <Placeholder title="Analytics" /> },
       { path: 'profile', element: <Placeholder title="Profile" /> },
+        ],
+      },
     ],
   },
   { path: '*', element: <Placeholder title="404 — Not Found" /> },
