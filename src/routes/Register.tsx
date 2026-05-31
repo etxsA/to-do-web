@@ -58,7 +58,7 @@ export function Register() {
     <div className="flex min-h-svh items-center justify-center bg-background p-4">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
-          <div className="mx-auto mb-1 text-xl font-bold text-primary">EduTask</div>
+          <div className="mx-auto mb-1 text-xl font-bold text-primary">Scholarly Atelier</div>
           <CardTitle>Create your account</CardTitle>
           <CardDescription>Start organizing your tasks</CardDescription>
         </CardHeader>
