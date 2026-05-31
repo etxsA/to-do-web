@@ -8,6 +8,7 @@ import { Dashboard } from '@/routes/Dashboard'
 import { ListDetail } from '@/routes/ListDetail'
 import { Search } from '@/routes/Search'
 import { SmartList } from '@/routes/SmartList'
+import { About } from '@/routes/About'
 
 /**
  * Route table (WEB_HANDOFF §2). Auth screens are top-level; everything else is
@@ -30,7 +31,7 @@ export const router = createBrowserRouter([
           { path: 'calendar', element: <Placeholder title="Calendar" /> },
           { path: 'board', element: <Placeholder title="Board" /> },
           { path: 'analytics', element: <Placeholder title="Analytics" /> },
-          { path: 'about', element: <Placeholder title="About" /> },
+          { path: 'about', element: <About /> },
         ],
       },
     ],
